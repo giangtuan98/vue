@@ -1,0 +1,67 @@
+<!-- 
+    lifecycle
+
+    beforeCreate(): khoi tao data, events
+    created(): instance created
+    beforeMount(): bien dich template
+    mounted(): du lieu duoc do vao template 
+    beforeUpdate(): so sanh su thay doi cua vue instance voi DOM
+    updated(): neu co su thay doi giua virtual dom va dom thi tien hanh cap nhap
+    beforeDestroy(): thuc hien cau lenh truoc khi bi huy
+    destroyed(): sua khi bi huy
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ title }}</h1>
+      <button @click="title = 'Changed with event click'">Update Even </button>
+        <button @click="destroyEvent">Destroy Event</button>
+      </button>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        title: 'VueJS Instance Lifecycle'
+      },
+      beforeCreate: function () {
+        console.log('beforeCreated');
+      },
+      created() {
+        console.log('created');
+      },
+      beforeMount() {
+        console.log('beforeMounted');
+      },
+      mounted() {
+        console.log('mounted');
+      },
+      beforeUpdate() {
+        console.log('beforeUpdated');
+      },
+      updated() {
+        console.log('updated');
+      },
+      beforeDestroy() {
+        console.log('beforeDestroy');
+      },
+      destroyed() {
+        console.log('destroyed');
+      },
+      methods: {
+        destroyEvent() {
+          this.$destroy();
+        }
+      }
+    })
+  </script>
+</html>

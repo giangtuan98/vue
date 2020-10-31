@@ -1,0 +1,47 @@
+<!-- vue instance
+cho phep truy cap thuoc tinh cua doi tuong tu ben ngoai
+tuy nhien, tai sao lai co the truy cap thuoc tinh tu ben ngoai ma chi can su dung vue1.title, thay vi vue1.data.title
+vuejs quan ly cac thuoc tinh, method bang cach tao ra bo theo doi getter setter, va no chi duoc tao ra khi tao doi tuong, method ben trong doi tuong
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='vue.js'></script>
+</head>
+<body>
+    <div id="app1">
+        <h1>{{ title }}</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam illum magni repellendus sequi odio exercitationem quod, obcaecati mollitia quia animi saepe reiciendis itaque eos, amet eius omnis sit temporibus cumque.</p>
+    </div>
+
+    <div id="app2">
+        <h1>{{ title }}</h1>
+        <button @click="changeVue1Title">change vue 1 title</button>
+    </div>
+</body>
+<script>
+    var vue1 = new Vue({
+        el: '#app1',
+        data: {
+            title: 'this is title'
+        }
+    });
+
+    var vue2 = new Vue({
+        el: '#app2',
+        data: {
+            title: 'this is second title'
+        },
+        methods: {
+            changeVue1Title() {
+                vue1.title = 'this is title updated'
+            }
+        }
+    })
+
+    console.log(vue1);
+</script>
+</html>

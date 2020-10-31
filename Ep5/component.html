@@ -1,0 +1,35 @@
+<!-- 
+    component
+    chia component de viec quan ly de dang hon, de su dung lai code
+    component phai duoc ve o dau trang
+    vue instance lam viec voi virtual dom, so sanh virtual dom so sanh voi vue instance va nhan thay su thay doi thi khi nay virtual dom moi cap nhat thay doi len DOM
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <script src="vue.js"></script>
+ </head>
+ <body>
+     <div id="app">
+         <button @click='show' ref='infoButton'>button</button>
+         <button @click='show' ref='infoButton2'>button</button>
+     </div>
+ </body>
+ <script>
+     new Vue({
+         el: '#app',
+         data: {
+ 
+         },
+         methods: {
+             show() {
+                 console.log(this.$refs);
+                 this.$refs.infoButton.innerText = 'update button 1';
+             }
+         }
+     })
+ </script>
+ </html>
