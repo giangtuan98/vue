@@ -6,6 +6,8 @@ Vue.component({
 	"contact-component": Contact
 });
 
+// TODO eventBus
+export const eventBus = new Vue();
 new Vue({
 	el: "#app",
 	render: h => h(App)
