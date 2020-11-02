@@ -23,7 +23,7 @@
   </style>
 -->
 <script>
-import { eventBus } from '../main.js';
+import { eventBus } from "../main.js";
 
 export default {
   props: {
@@ -31,17 +31,20 @@ export default {
       type: String,
     },
     resetNameFn: {
-      type: Function
-    }
+      type: Function,
+    },
   },
   methods: {
     reverseName() {
       return this.username.split("").reverse().join("");
     },
     resetName() {
-      this.username = 'reset name';
-      this.$emit('nameWasReset', this.username);
-    }
+      this.username = "reset name";
+      this.$emit("nameWasReset", this.username);
+    },
+  },
+  created() {
+    eventBus.$on("testEventBus", (name) => (this.username = name));
   },
 };
 </script>

@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     testEventBus() {
-      
+      eventBus.$emit('testEventBus', 'eventBus');
     }
   },
 };
