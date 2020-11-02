@@ -1,0 +1,51 @@
+<!-- 
+    TODO 
+    methods vs computed
+    computed: 
+        - chay truoc methods
+        - là thuộc tính 
+        - chỉ được gọi khi dữ liệu nó đang phụ thuộc vào thay đổi
+    methods:
+        - chạy sau computed
+        - tất cả các method sẽ được gọi khi có một biến nào bị thay đổi 
+        => các hàm không liên quan bị gọi nhiều lần
+    
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>Gia tri A: {{ tangA() }}</p>
+        <p>Gia tri B: {{ tangB() }}</p>
+        <button @click="a++">A</button>
+        <button @click="b++">B</button>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            a: 0,
+            b: 0,
+        },
+        methods: {
+            tangA() {
+                console.log('Function a');
+                return this.a;
+            },
+            tangB() {
+                console.log('Function b');
+                return this.b;
+            }
+        },
+
+    })
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="i in 10">{{ i }}</li>
+      </ul>
+      <ul>
+        <li v-for="(menu, i) in menus">{{ menu }}</li>
+      </ul>
+
+      <ul>
+        <li v-for="student in students" v-if="student.age > 15">
+          <div v-for="(value, key, index) in student">
+            {{ key }}:{{value}} ({{index}})
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        menus: ["Home", "About", "Blog", "Contact"],
+        students: [
+          {
+            name: "giang",
+            age: 30,
+            class: "IT",
+          },
+          {
+            name: "tuan",
+            age: 22,
+            class: "IT",
+          },
+          {
+            name: "vu",
+            age: 10,
+            class: "CD",
+          },
+        ],
+      },
+    });
+  </script>
+</html>

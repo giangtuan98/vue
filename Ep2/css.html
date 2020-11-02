@@ -1,0 +1,77 @@
+<!-- 
+	TODO
+	C1: su dung bien true - false de quan ly class
+	C2: dung v-model de thay doi class
+	C3: tra ve object style
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+		<script src="vue.js"></script>
+		<style>
+			.square {
+				width: 100px;
+				height: 100px;
+				background-color: gray;
+				display: inline-block;
+				margin: 10px;
+			}
+
+			.red {
+				background-color: red;
+			}
+
+			.green {
+				background-color: green;
+			}
+
+			.blue {
+				background-color: blue;
+			}
+		</style>
+  </head>
+  <body>
+    <div id="app">
+			<div class="square" :class="changeColor"></div>
+			<hr>
+			<p>tinh tong {{ a }} + {{ b }}</p>
+			<input type="text" v-model="sum">
+
+			<div class="square" :style="customStyle"></div>
+			<div class="square" :style="[customStyle, {height: width + 'px'}]"></div>
+			<input type="text" v-model="bgColor">
+			<input type="text" v-model="width">
+    </div>
+
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          a: 10,
+					b: 20,
+					sum: 0,
+					color: "blue",
+					bgColor: "gray",
+					width: 100,
+					height: 100
+        },
+				computed: {
+					changeColor: function (
+					) {
+						return (this.a + this.b) == this.sum ? "green" : "red";
+					},
+					customStyle () {
+						return {
+							backgroundColor: this.bgColor,
+							width: this.width + 'px',
+						}
+					}
+				}
+      });
+    </script>
+  </body>
+</html>

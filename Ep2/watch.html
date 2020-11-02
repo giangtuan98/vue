@@ -1,0 +1,35 @@
+<!-- 
+    TODO
+    Watch: theo dõi 1 thuốc tính, nó chỉ được gọi khi dữ liệu nó theo dõi bị thay đổi,
+    computed: 1 trong các biến nó phụ thuộc thay đổi thì nó sẽ được gọi
+    
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <script src="vue.js"></script>
+ </head>
+ <body>
+     <div id="app">
+         <p>{{ diem }}</p>
+     </div>
+ 
+     <script>
+         var app = new Vue({
+             el: '#app',
+             data: {
+                 diem: 'Ban A co mon toan 7 diem'
+             },
+             watch: {
+                 diem: function(newValue) {
+                     alert("diem nay da duoc nhap");
+                 }
+             }
+         })
+         app.diem = 'Ban A co mon toan 8 diem';
+     </script>
+ </body>
+ </html>

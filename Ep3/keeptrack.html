@@ -1,0 +1,52 @@
+<!-- 
+    TODO
+    khi them 1 phan tu moi vao mang, vuejs khong overide lai tu dau mang maf se them phan tu moi tu vi tri phan tu moi duoc them vao dua vao tinh nang keep tracking - sinh cac unique assign index
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="(menu, i) in menus" :key="menu">{{ menu }}</li>
+      </ul>
+
+      <button @click="addNewMenuItem">Add new menu item</button>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        menus: ["Home", "About", "Blog", "Contact"],
+        students: [
+          {
+            name: "giang",
+            age: 30,
+            class: "IT",
+          },
+          {
+            name: "tuan",
+            age: 22,
+            class: "IT",
+          },
+          {
+            name: "vu",
+            age: 10,
+            class: "CD",
+          },
+        ],
+      },
+      methods: {
+        addNewMenuItem() {
+          this.menus.push("test");
+        },
+      },
+    });
+  </script>
+</html>

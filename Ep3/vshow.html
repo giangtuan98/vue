@@ -1,0 +1,40 @@
+<!-- 
+    TODO
+    detach
+    them thuoc tinh display: none de an element di
+    khong dung duoc cho the template, vi no khong phai the cua html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>Are you doctor?</p>
+      <p v-if="isDoctor">Yes,I am</p>
+      <p v-else>No,I am teacher</p>
+      <button @click="isDoctor = !isDoctor">Change condition</button>
+
+      <template>
+        <div>Menu 1</div>
+        <div>Menu 1</div>
+        <div>Menu 1</div>
+        <div>Menu 1</div>
+      </template>
+      <button></button>
+    </div>
+
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          isDoctor: true,
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!-- 
+    TODO v-html, v-once, v-bind
+    v-bind: do vuejs khong tuong tac voi cac attribute cua the html, nen ta can su dung v-bind
+    V-once:
+    v-html: khi muon in mot the html ra thay vi in text
+    v-on:keyup.enter
+    v-on:mouseover
+    vietjs trong javascript
+
+    2 cach bind du lieu : {{}} va v-model
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="obj">
+        <div v-on:mousemove="tinhToaDo">
+            <p v-html="testMaHTML"></p>
+            <p v-once>{{ noidung }} {{ showPost() }}</p>
+            <button v-on:click="tangGiaTri">+</button>
+            <button v-on:click="dem++">+</button>
+            <p>{{ dem }}</p>
+            <p>{{ dem < 20 ? 'gia tri nam torng gioi han' : 'ban da nam ngoai gioi han'}}</p>
+            <a v-bind:href="link">Youtube</a>
+            <p>Toa do cua chuot: {{ x }} / {{ y }}</p>
+            <span v-on:mouseover="dungSuKien">Dung su kien</span>
+        </div>
+
+        <div class="">
+            <input type="text" v-on:keyup.enter="banPhim">
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#obj',
+            data: {
+                noidung: 'my name is giang',
+                link: 'http://www.youtube.com/',
+                testMaHTML: '<a href="abc"> </a>',
+                dem: 0,
+                x: 0,
+                y: 0,
+            },
+            methods: {
+                sayHello() {
+                    document.write('say hello');
+                },
+                showPost() { return this.title; },
+                tangGiaTri() { 
+                    this.dem++;
+                },
+                tinhToaDo(event) { 
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                },
+                dungSuKien(event) { 
+                    event.stopPropagation();
+                },
+                banPhim() { 
+                    alert('hello');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
